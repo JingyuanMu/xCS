@@ -1,0 +1,106 @@
+/* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 导航栏样式 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:  #ffffffec;
+    color: #303136;
+    padding: 10px 20px;
+    position: fixed;
+    left:0;
+    top: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    z-index: 1000;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.navbar button:hover {
+    text-decoration: underline;
+}
+
+.navbar h1{
+    font-size: large;
+}
+
+.container {
+    text-align: left;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.container h2{
+    font-size: large;
+}
+
+.admissions-display {
+    margin: 0 auto;
+    width: 90;
+    height: 95vh;
+    
+}
+
+#admissions-form{
+    width: 90vw;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100vw; /* 表格宽度占满容器 */
+    table-layout: auto; 
+}
+
+table th, table td {
+    text-align: center;
+    white-space: nowrap; /* 禁止换行 */
+    padding: 3px; /* 单元格内边距 */
+    border: 1px solid #ddd; /* 表格边框 */
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    font-size: small;
+
+}
+
+
+
+table td{
+    font-size: smaller;
+    padding: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: smaller;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}

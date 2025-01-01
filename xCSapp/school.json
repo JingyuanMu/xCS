@@ -1,0 +1,20 @@
+{
+    "us": {
+        "SSS": ["MSECS@Princeton", "MSCS@Stanford", "CSE@MIT","MSCS-Berkeley"],
+        "SS": ["MLT@CMU","CSE@Harvard", "DS@Harvard","MSCS@CMU","MSML@CMU","MSR@CMU","MCIS@UPenn","MSCS@UT-Austin","2-Yrs MSCS@Yale","ICME@Stanford"],
+        "S":["MCDS@CMU","MIIS@CMU","MSAII@CMU","MSCV@CMU","CS Meng@Cornell","MSCS@UCLA","MSCS@UIUC","MSCSE@UMich","MSCS@Wisc","CS-PMP@Wisc","EE@Stanford","MS&EStanford","DS@UPenn"],
+        "A+":["EECS Meng@Berkeley","MSIN@CMU","CS Meng@Cornell Tech","MSCS@Duke","MSCS@Gatech","MSCS@NWU","MCS@UIUC","MSCS@UMD","MMath@Waterloo","1-Yrs MSCS@Yale","ECE@UT-Austin"],
+        "A":["SESV@CMU","CM@Cornell Tech","CS75@UCSD","CSE@Gatech","ECE@CMU","MITS@CMU","DS@NYU","DS@UMich"],
+        "A-":["ScM CS@Brown","MSCS@Dartmouth","MCS@Rice","MPCS@UChicago","MCS@UCI","MSCS@UCSB","MSMITE@CMU","DS@Columbia","CSDA@Dartmouth","ECE@Duke","ECE@Gatech","Meng@UCLA","EC79@UCSD","CGGT@UPenn"],
+        "B+":["MSE-SS@CMU","MSCS@NYU Courant","MSCS@NYU Tandon","MSCS@TAMU","MCS@TAMU","MSECS@JHU","MSWE@UCI","MSCSE@UCSC","MSCS@UCD","CS28@USC","MISM@CMU","ECE Meng@Cornell","MPS-IS@Cornell","DS75@UCSD","EC82@UCSD","EC93@UCSD","ECE Meng@UIUC"],
+        "B":["CE@UCSB","CS General@NEU","CE Meng@TAMU","NetSys@UCI","MCS@UVA","MSCS@UVA","MSCS&SE@UWE","MSCS@UMass","MSIM@UIUC"],
+        "B-":["MCS@NCSU","MSCSE@OSU","MSCSE@PSU","MSCS@Rutgers","MSCS@SBU","MSCS@UF","MSCS@UMN","MSCS@VT","EE-PMP@UW","MSIS@NYU Tandon","MSCS@WUSTL"],
+        "C+":["MCS@UCR","MCS@SCU","MSCS@BU","MSCS@Emory","MSCSS@UWT","MSCS@Tufts","CS Meng@VT","MSCS@Vanderbilt","IS@NEU","CE@NYU","SES@NYU"],
+        "C":["MSCS@GWU","MSCS@SIT","MSCS@UTD","MSCS@Syracuse","MSCS@SMU","MCS@Utah"]
+
+    },
+    "ca": {
+        "SSS": ["MCS@Toronto"],
+        "S": ["MCS@UBC"]
+    }
+}

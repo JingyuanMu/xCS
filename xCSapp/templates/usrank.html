@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='rank.css') }}">
+    <title>US Rank</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1>美区选校梯度</h1>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+    <div style="display: flex;">
+        <div class="rank">
+            {% for rating, schools in data.items() %}
+                <div id="{{ rating }}" style="margin-top: 50px;">
+                    <h2>{{ rating }}</h2>
+                    <ul>
+                        {% for school in schools %}
+                            <li><a href="/{{ school }}">{{ school }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- 右侧索引 -->
+        <div class="right-index">
+            <ul>
+                {% for rating, schools in data.items() %}
+                    <li><a href="#{{ rating }}" class="index-link">{{ rating }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script>
+            // 获取所有索引链接
+            const indexLinks = document.querySelectorAll('.index-link');
+            
+            // 为每个链接添加点击事件监听器
+            indexLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // 阻止默认的跳转行为
+                    
+                    // 获取目标元素的 ID
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    // 如果目标元素存在，则平滑滚动到该元素
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth'});
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dp.css') }}">
+    
+</head>
+<body>
+    <div class="container">
+        <button id="addButton">DP 上报</button>
+    </div>
+
+    <div id="formContainer" style="display: none;">
+        <div id="formContent">
+            <!-- 关闭按钮 -->
+            <button id="closeButton">关闭</button>
+            <!-- 表单 -->
+            <form id="admissionForm" method="post" action="/dp">
+                <label for="schoolName">项目名称:</label>
+                <input type="text" id="schoolName" name="school_name" required>
+
+                <label for="admissionStatus">录取情况:</label>
+                <select id="admissionStatus" name="admission_status">
+                    <option value="AD">AD</option>
+                    <option value="REJ">REJ</option>
+                </select>
+
+                <label for="admissionDate">录取时间:</label>
+                <input type="date" id="admissionDate" name="admission_date" required>
+
+                <label for="undergraduateType">本科院校类型:</label>
+                <select id="undergraduateType" name="undergraduate_type">
+                    <option value="海本">海本</option>
+                    <option value="清北">清北</option>
+                    <option value="华五">华五</option>
+                    <option value="其他985">其他985</option>
+                    <option value="南科大和上科大">南科大&上科大</option>
+                    <option value="中外合办">中外合办</option>
+                    <option value="211">211</option>
+                    <option value="双非">双非</option>
+                </select>
+
+                <label for="undergraduateSchool">本科院校（请填院校英文缩写，也可填写"不方便透露"）:</label>
+                <input type="text" id="undergraduateSchool" name="undergraduate_school">
+
+                <label for="undergraduate_major">本科专业:</label>
+                <select id="undergraduate_major" name="undergraduate_major">
+                    <option value=计科&软件 selected>计科&软件</option>
+                    <option value="CS强相关">CS强相关</option>
+                    <option value="弱相关理工科">弱相关理工科</option>
+                    <option value="商科">商科</option>
+                    <option value="其他">其他</option>
+                </select>
+                
+
+                <label for="gpa">GPA:</label>
+                <input type="number" step="0.01" id="gpa" name="gpa" required>
+
+                <label for="gpaScale">GPA计分制:</label>
+                <select id="gpaScale" name="gpa_scale">
+                    <option value="4.0" selected>4.0</option>
+                    <option value="5.0">5.0</option>
+                    <option value="4.3">4.3</option>
+                </select>
+
+                <label for="averageScore">均分:</label>
+                <input type="number" id="averageScore" name="average_score" required>
+
+                <label for="gre">GRE:</label>
+                <input type="number" id="gre" name="gre">
+
+                <label for="work">工作经验:</label>
+                <select id="work" name="work">
+                    <option value="无实习" selected>无实习</option>
+                    <option value="有实习">有实习</option>
+                    <option value="已工作一年">已工作一年</option>
+                    <option value="已工作两年">已工作两年</option>
+                    <option value="已工作三年">已工作三年</option>
+                    <option value="工作经验大于3">工作经验>3+年</option>
+                </select>
+
+                <label for="strongRecommendation">牛推情况:</label>
+                <select id="strongRecommendation" name="strong_recommendation">
+                    <option value="无牛推" selected>无牛推</option>
+                    <option value="有牛推">有牛推</option>
+                </select>
+
+                <label for="hasPaper">科研情况:</label>
+                <select id="hasPaper" name="has_paper">
+                    <option value="有科研无产出" selected>有科研无产出</option>
+                    <option value="无科研">无科研</option>
+                    <option value="非CS科研">非CS科研</option>
+                    <option value="有产出">有产出</option>
+                </select>
+
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 获取按钮和表单容器
+        const addButton = document.getElementById('addButton');
+        const formContainer = document.getElementById('formContainer');
+        const closeButton = document.getElementById('closeButton');
+
+        // 点击 "DP 上报" 按钮显示表单
+        addButton.addEventListener('click', () => {
+            formContainer.style.display = 'flex';
+        });
+
+        // 点击 "关闭" 按钮隐藏表单
+        closeButton.addEventListener('click', () => {
+            formContainer.style.display = 'none';
+        });
+    </script>
+    
+
+    <div class="admissions-display">
+        <table>
+            <thead>
+                <tr>
+                    <th>院校名称</th>
+                    <th>录取情况</th>
+                    <th>录取时间</th>
+                    <th>本科院校类型</th>
+                    <th>本科院校</th>
+                    <th>本科专业</th>
+                    <th>GPA</th>
+                    <th>GPA算法</th>
+                    <th>均分</th>
+                    <th>GRE</th>
+                    <th>工作经验</th>
+                    <th>牛推情况</th>
+                    <th>科研情况</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for admission in admissions %}
+                <tr>
+                    <td>{{ admission.school_name }}</td>
+                    <td>{{ admission.admission_status }}</td>
+                    <td>{{ admission.admission_date }}</td>
+                    <td>{{ admission.undergraduate_type }}</td>
+                    <td>{{ admission.undergraduate_school or '-' }}</td>
+                    <td>{{ admission.undergraduate_major }}</td>
+                    <td>{{ admission.gpa }}</td>
+                    <td>{{ admission.gpa_scale }}</td>
+                    <td>{{ admission.average_score }}</td>
+                    <td>{{ admission.gre or '-' }}</td>
+                    <td>{{ admission.work }}</td>
+                    <td>{{ admission.strong_recommendation }}</td>
+                    <td>{{ admission.has_paper }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

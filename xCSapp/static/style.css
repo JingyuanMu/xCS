@@ -1,0 +1,139 @@
+#site-intro {
+    width: 85%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px 0;
+    background-color: #f4f4f4; /* 或者你想要的背景色 */
+    flex-shrink: 0; /* 防止被压缩 */
+}
+
+a {
+    text-decoration: none;
+}
+
+body, html {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+main {
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+    flex: 1 0 auto; /* 确保 main 扩展到填充可用空间 */
+}
+
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 左上角小字样式 */
+.small-logo {
+    position: fixed;
+    top: 10px;
+    left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+body.scrolled .small-logo,
+body.scrolled .site-intro-btn {
+    opacity: 0;
+}
+
+.section-wrap {
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.card-section {
+    margin-top: 25px; /* 保持每组之间的间距 */
+}
+
+.card-container {
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start; /* 卡片在容器中均匀分布 */
+    width: 100%; /* 确保卡片容器占满父容器宽度 */
+    gap: 18px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 10px; /* 组标题与卡片之间的间距 */
+}
+
+.card {
+    position: relative;
+    background-color: #add8e6; /* 美拉德蓝 (浅蓝色) */
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 430px;
+    width: 380px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 75vw; /* 设置宽度为视窗宽度的 75% */
+    }
+}
+
+.card img {
+    object-fit: contain; /* 确保图片保持比例同时覆盖整个卡片 */
+    z-index: 1;
+    height: 430px;
+    width: 380px;
+    transition: transform 0.8s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.1); /* 鼠标悬停时放大图片 */
+}
+
+.card-title{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.0rem;
+    margin: 0 0 10px;
+    color: #FFFFFF;
+    padding: 20px;
+    z-index: 100;
+}
+
+.card-content p {
+    margin: 0 0 15px;
+    color: #333;
+}
+
+.site-intro-btn {
+    position: fixed;
+    top: 10px; /* 与small-logo垂直对齐 */
+    right: 30px; /* 设置按钮在右边，调整右边距 */
+    font-size: 20px; /* 与small-logo字体大小相同 */
+    font-weight: bold; /* 与small-logo字体粗细相同 */
+    color: black; /* 与small-logo颜色相同 */
+    background: none; /* 使按钮背景透明 */
+    border: none; /* 去除边框 */
+    padding: 0; /* 去除内边距 */
+    cursor: pointer; /* 显示鼠标指针为手型 */
+    z-index: 1000; /* 确保按钮在大多数元素之上 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+}
+

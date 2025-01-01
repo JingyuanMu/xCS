@@ -1,0 +1,225 @@
+/* CSS styles for the admissions page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.report-button-container, .container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.report-button {
+    background-color: #4a4a4a; /* Dark grey, Scandinavian color */
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.report-button:hover {
+    background-color: #333333; /* Slightly darker on hover */
+    transform: scale(1.05);
+}
+
+.report-form-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.report-form {
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.report-form label, form label {
+    color: #333333;
+}
+
+.report-form input, .report-form select, .report-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.report-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.report-form button:hover {
+    background-color: #0056b3;
+}
+
+.admissions-display {
+    margin: 0 auto;
+    width: 90vw;
+    height: 95vh;
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.container {
+    width: 90vw;
+    height: 20vw;
+    margin: 20 auto;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+#addButton {
+    width: 150px;
+    height: 150px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 20 auto;
+    transition: transform 0.3s ease;
+    margin-top: 20 auto;
+}
+
+#addButton:hover {
+    transform: scale(1.1);
+}
+
+#formContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#formContent {
+    width: 80vw;
+    height: 80vh;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* 启用垂直滚动 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+#closeButton:hover {
+    background: #ff4d4d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+form input,
+form select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+
+.admissions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+
+.admissions-table th,
+.admissions-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.admissions-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.admissions-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

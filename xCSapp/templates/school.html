@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ school }} - 院校简介</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='school.css') }}">
+    <script>
+        // 用于切换表单的显示和隐藏
+        function toggleForm() {
+            const form = document.getElementById('admissions-form');
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">  
+        <h1>{{ school }}</h1>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+
+    <div class="container">
+        <h2>院校简介：</h2>
+        <div id="school-info">
+            {% if school_info %}
+                <p>{{ school_info['description'] }}</p>
+            {% else %}
+                <p>暂无简介，您可以添加简介。</p>
+            {% endif %}
+        </div>
+
+        <!-- 添加按钮 -->
+        <button onclick="toggleForm()">查看录取信息表单</button>
+
+        <!-- 添加表单 -->
+        <div id="admissions-form" style="display: none;">
+            <h3>录取信息表单：</h3>
+            <div class="admissions-display">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>录取情况</th>
+                            <th>录取时间</th>
+                            <th>本科</th>
+                            <th>本科院校</th>
+                            <th>GPA</th>
+                            <th>均分</th>
+                            <th>GRE</th>
+                            <th>工作经验</th>
+                            <th>牛推情况</th>
+                            <th>科研情况</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for admission in admissions %}
+                        <tr>
+                            <td>{{ admission.admission_status }}</td>
+                            <td>{{ admission.admission_date }}</td>
+                            <td>{{ admission.undergraduate_type }}/{{ admission.undergraduate_major }}</td>
+                            <td>{{ admission.undergraduate_school or '-' }}</td>
+                            <td>{{ admission.gpa }}/{{ admission.gpa_scale }}</td>
+                            <td>{{ admission.average_score }}</td>
+                            <td>{{ admission.gre or '-' }}</td>
+                            <td>{{ admission.work }}</td>
+                            <td>{{ admission.strong_recommendation }}</td>
+                            <td>{{ admission.has_paper }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
