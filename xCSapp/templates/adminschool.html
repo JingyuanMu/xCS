@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dpnew.css') }}">
+</head>
+<body>
+    <!-- 固定的目录栏 -->
+    <div class="navbar">  
+        <button id="addButton">DP 分享</button>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+
+    <div class="admissions-display">
+        {% for admission in admissions %}
+        <div class="admission-card {{ 'ad-card-ad' if admission.admission_status == 'AD' else 'ad-card-rej' }}">
+            <h3>{{ admission.school_name }}</h3>
+            <p>{{admission.admission_date}}</p>
+            <p>{{ admission.undergraduate_type }} ({{admission.undergraduate_major}})   GPA: {{ admission.gpa }}/{{ admission.gpa_scale}} </p>
+            <button class="details-button" onclick="showModifyForm('{{ admission.id }}')">修改</button>
+        </div>
+
+        <div class="modal" id="modify-modal-{{ admission.id }}" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModifyForm('{{ admission.id }}')">×</span>
+                <h3>修改录取信息</h3>
+                <form id="updateForm-{{ admission.id }}" method="post" action="/adminschool">
+                    <input type="hidden" name="id" value="{{ admission.id }}">
+                    <label for="schoolName">项目名称:</label>
+                    <input type="text" id="schoolName" name="school_name" value="{{ admission.school_name }}" required>
+                                     
+                    <label for="admissionStatus">录取情况:</label>
+                    <select id="admissionStatus" name="admission_status">
+                        <option value="AD">AD</option>
+                        <option value="REJ">REJ</option>
+                    </select>
+
+                    <label for="admissionDate">录取时间:</label>
+                    <input type="date" id="admissionDate" name="admission_date" required>
+
+                    <label for="undergraduateType">本科院校类型:</label>
+                    <select id="undergraduateType" name="undergraduate_type">
+                        <option value="海本">海本</option>
+                        <option value="清北">清北</option>
+                        <option value="华五">华五</option>
+                        <option value="其他985">其他985</option>
+                        <option value="南科大和上科大">南科大&上科大</option>
+                        <option value="中外合办">中外合办</option>
+                        <option value="211">211</option>
+                        <option value="双非">双非</option>
+                    </select>
+
+                    <label for="undergraduateSchool">本科院校（请填院校英文缩写，或填写"不便透露"）:</label>
+                    <input type="text" id="undergraduateSchool" name="undergraduate_school">
+
+                    <label for="undergraduate_major">本科专业:</label>
+                    <select id="undergraduate_major" name="undergraduate_major">
+                        <option value="CS" selected>CS</option>
+                        <option value="CS强相关">CS强相关</option>
+                        <option value="弱相关理工科">弱相关理工科</option>
+                        <option value="商科">商科</option>
+                        <option value="其他">其他</option>
+                    </select>
+
+                    <label for="gpa">GPA:</label>
+                    <input type="number" step="0.01" id="gpa" name="gpa" required>
+    
+                    <label for="gpaScale">GPA计分制:</label>
+                    <select id="gpaScale" name="gpa_scale">
+                        <option value="4.0" selected>4.0</option>
+                        <option value="5.0">5.0</option>
+                        <option value="4.3">4.3</option>
+                    </select>
+
+                    <label for="averageScore">均分:</label>
+                    <input type="number" id="averageScore" name="average_score" required>
+    
+                    <label for="gre">GRE:</label>
+                    <input type="number" id="gre" name="gre">
+
+                    <label for="work">工作经验:</label>
+                    <select id="work" name="work">
+                        <option value="无实习" selected>无实习</option>
+                        <option value="有实习">有实习</option>
+                        <option value="已工作一年">已工作一年</option>
+                        <option value="已工作两年">已工作两年</option>
+                        <option value="已工作三年">已工作三年</option>
+                        <option value="工作经验大于3">工作经验>3+年</option>
+                    </select>
+
+                    <label for="strongRecommendation">牛推情况:</label>
+                    <select id="strongRecommendation" name="strong_recommendation">
+                        <option value="无牛推" selected>无牛推</option>
+                        <option value="有牛推">有牛推</option>
+                    </select>
+    
+                    <label for="hasPaper">科研情况:</label>
+                    <select id="hasPaper" name="has_paper">
+                        <option value="有科研无产出" selected>有科研无产出</option>
+                        <option value="无科研">无科研</option>
+                        <option value="非CS科研">非CS科研</option>
+                        <option value="有产出">有产出</option>
+                    </select>
+
+                    <button type="submit">更新</button>
+                </form>
+            </div>
+        </div>
+    
+    {% endfor %}
+</div>
+
+<script>
+    function showModifyForm(admissionId) {
+        document.getElementById(`modify-modal-${admissionId}`).style.display = 'flex';
+    }
+
+    function closeModifyForm(admissionId) {
+        document.getElementById(`modify-modal-${admissionId}`).style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

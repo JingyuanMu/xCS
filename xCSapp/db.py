@@ -31,3 +31,18 @@ def init_db_command():
     """清空现有数据并创建新表格"""
     init_db()
     click.echo('已初始化数据库。')
+
+def get_table_names():
+    """返回数据库中的所有表名"""
+    db = get_db()
+    query = "SELECT name FROM sqlite_master WHERE type='table';"
+    return [row['name'] for row in db.execute(query).fetchall()]
+
+
+@click.command('list-tables')
+def list_tables_command():
+    """列出数据库中的所有表名"""
+    tables = get_table_names()
+    click.echo("现有表格:")
+    for table in tables:
+        click.echo(f"- {table}")

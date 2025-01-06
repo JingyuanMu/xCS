@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dpnew.css') }}">
+</head>
+<body>
+    <!-- 固定的目录栏 -->
+    <div class="navbar">  
+        <button id="addButton">DP 分享</button>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+
+    <div class="admissions-display">
+        {% for visadp in cnvisa %}
+        <div class="admission-card {{'ad-card-ad' if visadp.visa_status == 'Approved' else 'ad-card-rej' if visadp.visa_status == 'Check' else 'ad-card-Ref' if visadp.visa_status == 'Refused' }}">
+            <h3>{{ visadp.location }} {{ visadp.visa_type }}</h3>
+            <p>{{visadp.interview_date}} - {{visadp.issue_date}}</p>
+            <p>{{ visadp.graduate_type }} ({{visadp.major}})</p>
+            <button class="details-button" onclick="showModifyForm('{{ visadp.id }}')">修改</button>
+        </div>
+
+        <div class="modal" id="modify-modal-{{ visadp.id }}" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModifyForm('{{ visadp.id }}')">×</span>
+                <h3>修改信息</h3>
+                <form id="updateForm-{{ visadp.id }}" method="post" action="/adminvisa">
+                    <input type="hidden" name="id" value="{{ visadp.id }}">
+                    <label for="location">地点:</label>
+                    <input type="text" id="location" name="location" value="{{ visadp.location }}" >
+
+                    <label for="visa_status">签证状态:</label>
+                    <select id="visa_status" name="visa_status">
+                        <option value="Approved">Approved</option>
+                        <option value="Check" selected>Check</option>
+                        <option value="Refused">Refused</option>
+                    </select>
+
+                    <label for="visa_type">签证类型:</label>
+                    <select id="visa_type" name="visa_type">
+                        <option value="F" selected>F</option>
+                        <option value="J">J</option>
+                        <option value="OPT">OPT</option>
+                        <option value="H1B">H1B</option>
+                        <option value="其他">其他</option>
+                    </select>
+
+                    <label for="graduate_type">本科院校类型:</label>
+                    <select id="graduate_type" name="graduate_type">
+                        <option value="国防七子">国防七子</option>
+                        <option value="10043特高风险">10043特高风险</option>
+                        <option value="10043高风险">10043高风险</option>
+                        <option value="10043中风险">10043中风险</option>
+                        <option value="10043低风险">10043低风险</option>
+                        <option value="非10043">非10043</option>
+                    </select>
+
+                    <label for="interview_date">面签时间:</label>
+                    <input type="date" id="interview_date" name="interview_date" required>
+    
+                    <label for="issue_date">签发时间:</label>
+                    <input type="date" id="issue_date" name="issue_date">
+    
+                    <label for="major">专业:</label>
+                    <select id="major" name="major">
+                        <option value="已工作">已工作</option>
+                        <option value="CS-phd">CS-phd</option>
+                        <option value="其他STEM-phd">其他STEM-phd</option>
+                        <option value="CS">CS-master</option>
+                        <option value="其他STEM-master">其他STEM-master</option>
+                        <option value="STEM-美本">STEM-美本</option>
+                        <option value="已工作">已工作</option>
+                        <option value="STEM-phd">STEM-phd</option>
+                        <option value="STEM-master">STEM-master</option>
+                        <option value="STEM-美本">STEM-美本</option>
+                        <option value="其他专业">其他专业</option>
+                    </select>
+                                     
+                    
+
+                    <button type="submit">更新</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}        
+    </div> 
+
+    <script>
+        function showModifyForm(admissionId) {
+            document.getElementById(`modify-modal-${admissionId}`).style.display = 'flex';
+        }
+    
+        function closeModifyForm(admissionId) {
+            document.getElementById(`modify-modal-${admissionId}`).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

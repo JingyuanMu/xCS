@@ -21,6 +21,7 @@
             <form id="admissionForm" method="post" action="/dp">
                 <label for="schoolName">项目名称:</label>
                 <input type="text" id="schoolName" name="school_name" required>
+                <span id="validationMessage" style="color: red; display: none; font-size: xx-small;">请输入与选校梯度页面一致的名字</span>
 
                 <label for="admissionStatus">录取情况:</label>
                 <select id="admissionStatus" name="admission_status">
@@ -43,12 +44,12 @@
                     <option value="双非">双非</option>
                 </select>
 
-                <label for="undergraduateSchool">本科院校（请填院校英文缩写，也可填写"不方便透露"）:</label>
+                <label for="undergraduateSchool">本科院校（请填院校英文缩写，或填写"不便透露"）:</label>
                 <input type="text" id="undergraduateSchool" name="undergraduate_school">
 
                 <label for="undergraduate_major">本科专业:</label>
                 <select id="undergraduate_major" name="undergraduate_major">
-                    <option value=计科&软件 selected>计科&软件</option>
+                    <option value="CS" selected>CS</option>
                     <option value="CS强相关">CS强相关</option>
                     <option value="弱相关理工科">弱相关理工科</option>
                     <option value="商科">商科</option>
@@ -116,6 +117,29 @@
         closeButton.addEventListener('click', () => {
             formContainer.style.display = 'none';
         });
+
+        window.onload = function() {
+            let schools;
+            fetch('/static/name.json')
+                .then(response => response.json())
+                .then(data => {
+                    schools = data.schools; // 假设JSON结构是 { "schools": ["school1", "school2", ...] }
+                    // 监听输入变化
+                    document.getElementById('schoolName').addEventListener('input', function() {
+                        const inputValue = this.value;
+                        const isValid = schools.includes(inputValue);
+                        
+                        const validationMessage = document.getElementById('validationMessage');
+                        if (!isValid) {
+                            validationMessage.style.display = 'inline';
+                        } else {
+                            validationMessage.style.display = 'none';
+                        }
+                    });
+                })
+                .catch(error => console.error('加载JSON时出错:', error));
+        };
+        const inputElement = document.getElementById('schoolName');
     </script>
 
     <!-- 录取信息展示 -->
@@ -124,7 +148,7 @@
         <div class="admission-card {{ 'ad-card-ad' if admission.admission_status == 'AD' else 'ad-card-rej' }}">
             <h3>{{ admission.school_name }}</h3>
             <p>{{admission.admission_date}}</p>
-            <p>本科: {{ admission.undergraduate_type }} ({{admission.undergraduate_major}})   GPA: {{ admission.gpa }}/{{ admission.gpa_scale}} </p>
+            <p>{{ admission.undergraduate_type }} ({{admission.undergraduate_major}})   GPA: {{ admission.gpa }}/{{ admission.gpa_scale}} </p>
             <button class="details-button" onclick="showDetails('{{ admission.id }}')">详细信息</button>
         </div>
 

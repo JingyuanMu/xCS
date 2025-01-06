@@ -40,7 +40,7 @@ main {
     position: fixed;
     top: 10px;
     left: 30px;
-    font-size: 20px;
+    font-size: large;
     font-weight: bold;
     color: black;
     opacity: 1;
@@ -71,7 +71,7 @@ body.scrolled .site-intro-btn {
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 10px; /* 组标题与卡片之间的间距 */
 }
 

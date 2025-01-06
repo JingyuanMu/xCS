@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ school }} - 院校简介</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='school.css') }}">
-    <script>
-        // 用于切换表单的显示和隐藏
-        function toggleForm() {
-            const form = document.getElementById('admissions-form');
-            if (form.style.display === 'none' || form.style.display === '') {
-                form.style.display = 'block';
-            } else {
-                form.style.display = 'none';
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="navbar">  
@@ -26,24 +15,24 @@
     <div class="container">
         <h2>院校简介：</h2>
         <div id="school-info">
-            {% if school_info %}
-                <p>{{ school_info['description'] }}</p>
+            {% if school_info.description_manager %}
+                <pre>{{ school_info.description_manager }}</pre>
             {% else %}
                 <p>暂无简介，您可以添加简介。</p>
             {% endif %}
         </div>
 
         <!-- 添加按钮 -->
-        <button onclick="toggleForm()">查看录取信息表单</button>
+        <button id="addButton">项目说明补充</button>
 
         <!-- 添加表单 -->
-        <div id="admissions-form" style="display: none;">
-            <h3>录取信息表单：</h3>
-            <div class="admissions-display">
+        <div id="admissions-form" >
+            <h3>录取数据：</h3>
+            <div class="admissions-display" >
                 <table>
                     <thead>
                         <tr>
-                            <th>录取情况</th>
+                            <th>结果</th>
                             <th>录取时间</th>
                             <th>本科</th>
                             <th>本科院校</th>
@@ -74,6 +63,34 @@
                 </table>
             </div>
         </div>
+
+        <div id="formContainer" style="display: none;">
+            <div id="formContent">
+                <button id="closeButton">关闭</button>
+                <form id="admissionForm" method="post" action="/{{ school }}">
+                    <label for="schoolName">项目说明补充:</label>
+                    <textarea id="project-description" name="description"></textarea>
+                    <button type="submit">提交</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // 获取按钮和表单容器
+            const addButton = document.getElementById('addButton');
+            const formContainer = document.getElementById('formContainer');
+            const closeButton = document.getElementById('closeButton');
+    
+            // 点击 "DP 上报" 按钮显示表单
+            addButton.addEventListener('click', () => {
+                formContainer.style.display = 'flex';
+            });
+    
+            // 点击 "关闭" 按钮隐藏表单
+            closeButton.addEventListener('click', () => {
+                formContainer.style.display = 'none';
+            });
+        </script>
     </div>
 </body>
 </html>

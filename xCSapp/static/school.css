@@ -44,8 +44,8 @@ body {
 
 .container {
     text-align: left;
-    padding: 40px;
-    margin-top: 30px;
+    padding: 20px;
+    margin-top: 50px;
 }
 
 .container h2{
@@ -55,39 +55,31 @@ body {
 .admissions-display {
     margin: 0 auto;
     width: 90;
-    height: 95vh;
-    
-}
-
-#admissions-form{
-    width: 90vw;
+    height: 40vh;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    padding: 20px;
+    border: 2px solid rgb(34, 176, 171);
 }
 
 table {
     border-collapse: collapse;
-    width: 100vw; /* 表格宽度占满容器 */
+    width: 100%;
     table-layout: auto; 
+    margin: 0 auto;
+    border: 1px solid rgb(161, 159, 159);
 }
+
 
 table th, table td {
-    text-align: center;
-    white-space: nowrap; /* 禁止换行 */
-    padding: 3px; /* 单元格内边距 */
-    border: 1px solid #ddd; /* 表格边框 */
-}
-
-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-    font-size: small;
-
-}
-
-
-
-table td{
-    font-size: smaller;
-    padding: 5px;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle; 
+    padding: 8px; /* 单元格内边距 */
+    border: none; 
+    font-size: 8px;
 }
 
 button {
@@ -102,5 +94,85 @@ button {
 }
 
 button:hover {
+    background-color: #218838;
+}
+
+#formContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#formContent {
+    width: 80vw;
+    height: 80vh;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto; /* 启用垂直滚动 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+#closeButton:hover {
+    background: #ff4d4d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#project-description {
+    width: 100%; /* 设置宽度为容器的 90% */
+/* 设置高度 */
+    resize: vertical; /* 允许用户垂直调整大小 */
+    border: 1px solid #000; /* 添加边框 */
+    border-radius: 5px; /* 添加圆角 */
+    padding: 0.5rem; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    line-height: 1.5; /* 行高 */
+    box-sizing: border-box; /* 确保边框不会影响宽高 */
+}
+
+
+form button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
     background-color: #218838;
 }

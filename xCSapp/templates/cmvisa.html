@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dpnew.css') }}">
+</head>
+<body>
+    <!-- 固定的目录栏 -->
+    <div class="navbar">  
+        <button id="addButton">DP 分享</button>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+
+    <div id="formContainer" style="display: none;">
+        <div id="formContent">
+            <!-- 关闭按钮 -->
+            <button id="closeButton">关闭</button>
+            <!-- 表单 -->
+            <form id="admissionForm" method="post" action="/cmvisa">
+                <label for="visa_status">签证情况:</label>
+                <select id="visa_status" name="visa_status">
+                    <option value="Approved">Approved</option>
+                    <option value="Check" selected>Check</option>
+                    <option value="Refused">Refused</option>
+                </select>
+
+                <label for="location">签证地点:</label>
+                <select id="location" name="location">
+                    <option value="蒂华纳">蒂华纳</option>
+                    <option value="瓜达拉哈拉">瓜达拉哈拉</option>
+                    <option value="墨西哥城">墨西哥城</option>
+                    <option value="蒙特雷">蒙特雷</option>
+                    <option value="梅里达">梅里达</option>
+                    <option value="诺加莱斯">诺加莱斯</option>
+                    <option value="华雷斯">华雷斯</option>
+                    <option value="新拉雷多">新拉雷多</option>
+                    <option value="多伦多">多伦多</option>
+                    <option value="温哥华">温哥华</option>
+                    <option value="蒙特利尔">蒙特利尔</option>
+                    <option value="卡尔加里">卡尔加里</option>
+                    <option value="魁北克">魁北克</option>
+                    <option value="哈利法克斯">哈利法克斯</option>
+                </select>
+
+                <label for="visa_type">签证类型:</label>
+                <select id="visa_type" name="visa_type">
+                    <option value="F" selected>F</option>
+                    <option value="J">J</option>
+                    <option value="OPT">OPT</option>
+                    <option value="H1B">H1B</option>
+                    <option value="其他">其他</option>
+                </select>
+
+                <label for="interview_date">面签时间:</label>
+                <input type="date" id="interview_date" name="interview_date" required>
+
+                <label for="issue_date">签发时间:</label>
+                <input type="date" id="issue_date" name="issue_date">
+
+                <label for="major">专业:</label>
+                <select id="major" name="major">
+                    <option value="已工作">已工作</option>
+                    <option value="STEM-phd">STEM-phd</option>
+                    <option value="STEM-master">STEM-master</option>
+                    <option value="STEM-美本">STEM-美本</option>
+                    <option value="其他专业">其他专业</option>
+                </select>
+
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 获取按钮和表单容器
+        const addButton = document.getElementById('addButton');
+        const formContainer = document.getElementById('formContainer');
+        const closeButton = document.getElementById('closeButton');
+
+        // 点击 "DP 上报" 按钮显示表单
+        addButton.addEventListener('click', () => {
+            formContainer.style.display = 'flex';
+        });
+
+        // 点击 "关闭" 按钮隐藏表单
+        closeButton.addEventListener('click', () => {
+            formContainer.style.display = 'none';
+        });
+    </script>
+
+    <!-- 录取信息展示 -->
+    <div class="admissions-display">
+        {% for visadp in cmvisa %}
+        <div class="admission-card {{'ad-card-ad' if visadp.visa_status == 'Approved' else 'ad-card-rej' if visadp.visa_status == 'Check' else 'ad-card-Ref' if visadp.visa_status == 'Refused' }}">
+            <h3>{{ visadp.location }} {{ visadp.visa_type }}</h3>
+            <p>{{visadp.interview_date}} - {{visadp.issue_date}}</p>
+            <p>({{visadp.major}})</p>
+        </div>
+        {% endfor %}        
+    </div> 
+</body>
+</html>

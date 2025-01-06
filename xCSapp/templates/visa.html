@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <!-- 引入 GitHub Markdown 样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sindresorhus/github-markdown-css/github-markdown-light.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='md.css') }}">
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>美区选校梯度</h1>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+    
+    <!-- 添加 markdown-body 类 -->
+    <div id="markdown-content" class="markdown-body"></div>
+
+    <!-- 引入 Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // 加载 Markdown 文件
+        fetch('static/visa.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('markdown-content').innerHTML = marked.parse(text);
+            });
+    </script>
+</body>
+</html>
+

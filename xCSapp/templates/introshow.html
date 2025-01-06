@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dpnew.css') }}">
+</head>
+<body>
+    <!-- 固定的目录栏 -->
+    <div class="navbar">  
+        <button id="addButton">DP 分享</button>
+        <button id="homeButton" onclick="window.location.href='/'">xCS</button>
+    </div>
+
+    <div id="formContainer" style="display: none;">
+        <div id="formContent">
+            <!-- 关闭按钮 -->
+            <button id="closeButton">关闭</button>
+            <!-- 表单 -->
+            <form id="admissionForm" method="post" action="/introshow">
+                <label for="schoolName">项目名称:</label>
+                <input type="text" id="schoolName" name="name" required>
+                <span id="validationMessage" style="color: red; display: none; font-size: xx-small;">请输入与选校梯度页面一致的名字</span>
+
+                <label for="schoolName">项目说明补充:</label>
+                <textarea id="project-description" name="description_manager"></textarea>
+
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 获取按钮和表单容器
+        const addButton = document.getElementById('addButton');
+        const formContainer = document.getElementById('formContainer');
+        const closeButton = document.getElementById('closeButton');
+
+        // 点击 "DP 上报" 按钮显示表单
+        addButton.addEventListener('click', () => {
+            formContainer.style.display = 'flex';
+        });
+
+        // 点击 "关闭" 按钮隐藏表单
+        closeButton.addEventListener('click', () => {
+            formContainer.style.display = 'none';
+        });
+
+        window.onload = function() {
+            let schools;
+            fetch('/static/name.json')
+                .then(response => response.json())
+                .then(data => {
+                    schools = data.schools; // 假设JSON结构是 { "schools": ["school1", "school2", ...] }
+                    // 监听输入变化
+                    document.getElementById('schoolName').addEventListener('input', function() {
+                        const inputValue = this.value;
+                        const isValid = schools.includes(inputValue);
+                        
+                        const validationMessage = document.getElementById('validationMessage');
+                        if (!isValid) {
+                            validationMessage.style.display = 'inline';
+                        } else {
+                            validationMessage.style.display = 'none';
+                        }
+                    });
+                })
+                .catch(error => console.error('加载JSON时出错:', error));
+        };
+        const inputElement = document.getElementById('schoolName');
+    </script>
+
+    <!-- 录取信息展示 -->
+    <div class="admissions-display">
+        {% for school_intro in school_intros %}
+        <div class="admission-card ">
+            <h3>{{ school_intro.name }}</h3>
+            <p>{{school_intro.description}}</p>
+        </div>
+        {% endfor %}
+    </div>  
+</body>
+</html>

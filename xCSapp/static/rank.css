@@ -56,6 +56,13 @@ main {
 
 h2 {
     font-size: 1.8rem;
+    color: #0577f9;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.4rem;
     color: #a84300;
     font-weight: bold;
     margin-bottom: 10px;
@@ -63,7 +70,7 @@ h2 {
 
 ul {
     list-style: none;
-    padding-left: 25px;
+    padding-left: 0;
 }
 
 ul li {
@@ -72,7 +79,7 @@ ul li {
 
 ul li a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #424242;
     transition: color 0.3s ease;

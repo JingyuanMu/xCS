@@ -1,0 +1,42 @@
+{
+    "schools": 
+        ["MSECS@Princeton", "MSCS@Stanford", "CSE@MIT","MSCS-Berkeley",
+        "MLT@CMU","CSE@Harvard", "DS@Harvard","MSCS@CMU","MSML@CMU","MSR@CMU","MCIS@UPenn","MSCS@UT-Austin","2-Yrs MSCS@Yale","ICME@Stanford",
+        "MCDS@CMU","MIIS@CMU","MSAII@CMU","MSCV@CMU","CS Meng@Cornell","MSCS@UCLA","MSCS@UIUC","MSCSE@UMich","MSCS@Wisc","CS-PMP@Wisc","EE@Stanford","MS&EStanford","DS@UPenn",
+        "EECS Meng@Berkeley","MSIN@CMU","CS Meng@Cornell Tech","MSCS@Duke","MSCS@Gatech","MSCS@NWU","MCS@UIUC","MSCS@UMD","MMath@Waterloo","1-Yrs MSCS@Yale","ECE@UT-Austin",
+        "SESV@CMU","CM@Cornell Tech","CS75@UCSD","CSE@Gatech","ECE@CMU","MITS@CMU","DS@NYU","DS@UMich","MCS@UCI","CGGT@UPenn","Meng@UCLA",
+        "ScM CS@Brown","MSCS@Dartmouth","MCS@Rice","MPCS@UChicago","MSCS@UCSB","MSMITE@CMU","DS@Columbia","CSDA@Dartmouth","ECE@Duke","ECE@Gatech","EC79@UCSD","ECE Meng@UIUC",
+        "CE@UCSB","MSE-SS@CMU","MSCS@NYU Courant","MSCS@NYU Tandon","MSCS@TAMU","MCS@TAMU","MSECS@JHU","MSWE@UCI","MSCSE@UCSC","MSCS@UCD","CS28@USC","MISM@CMU","ECE Meng@Cornell","MPS-IS@Cornell","DS75@UCSD","EC82@UCSD","EC93@UCSD",
+        "CS General@NEU","CE Meng@TAMU", "MECE@Rice","NetSys@UCI","MCS@UVA","MSCS@UVA","MSCS&SE@UWE","MSCS@UMass","MSIM@UIUC","MSCS@WUSTL","SE@UPenn",
+        "MCS@NCSU","MSCSE@OSU","MSCSE@PSU","MSCS@Rutgers","MSCS@SBU","MSCS@UF","MSCS@UMN","MSCS@VT","EE-PMP@UW","MCS@WFU","MSCS@ASU","MCS@CU","EE@UPenn","EE@Columbia","CE@Columbia",
+        "MCS@UCR","MSCS@BU","MSCS@Emory","MSCS@Tufts","CS Meng@VT","MSCS@Vanderbilt","MSIS@NYU Tandon",
+        "MCS@SCU","MSCSS@UWT","IS@NEU","CE@NYU","SES@NYU","MSCS@UTD","MCS@Utah",
+        "MSCS@GWU","MSCS@SIT","MSCS@Syracuse","MSCS@SMU",
+        "MSc CS@UBC vancouver","MSc CS@UofT","MSc CS@Mcgill","MMATH@Waterloo",
+        "MS ECE@UBC vancouver","MSc CS@SFU","MSc CS@Uvic","MSc CS@UBC Okanagan","MScAC@UofT","MENG ECE Co-op@Waterloo","MDSAI@Waterloo",
+        "MASc ECE@Uvic","MSCS@uCalgary","MSCS@uAlberta","MDS@UBC vancouver","MI@UofT",
+        "MENG ECE@Uvic","MPCS Big Data@SFU","MPCS Computer Vision@SFU","MPCS Security@SFU","MDS@UBC Okanagan","CS Meng ECE@Mcgill","CAS MEng@McMaster","MSc@York","AI-MSc@York","MSc CS@Queen","MSc CS@University of Saskatchewan",
+        "MS EE@UBC Okanagan","MS ECE@UofT","MS CS@NEU VAN","MENG ECE Non Co-op@UofT","MCS@UOttawa/UCarleton","MDS@Uwestern","ECE MEng@McMaster","MSCS@Western","MCS MultiMedia@uAlberta","MDS@uCalgary","MSc ECE@University of Saskatchewan",
+        "MADS@Uvic","MTIS@Uvic","MACS@Dalhousie","MECE@UOttawa","MECE@Uwestern","ECE MEng@uAlberta","Meng EE@University of Saskatchewan","ECE@Concordia University","CS@Concordia University",
+        "MSDS@Thompson Rivers University","CyberSecurity@NYIT VAN","MSCS@FDU VAN","MSCS@UNBC",
+        "CS@UniversityofManitoba","CS@UniversityofWindsor","CS@MemorialUniversity","DS@MemorialUniversity",
+        "MPhil CS@HKU","MPhil EEE@HKU","MPhil CSE@CUHK",
+        "MPhil EE@CUHK","MPhil CSE@HKUST","MPhil ECE@HKUST",
+        "MDASC@HKU","MSc(AI)@HKU","MSc Cs@HKU","MSe ECE General Stream@HKU","MSe ECE Robotics and Intelligent Systems@HKU","MSc IC@HKUST",
+        "MSe ECE Communications Engineering Stream@HKU","MSe ECE  Power Engineering Stream@HKU","MSc CS@CUHK","MSc EE@CUHK","MSc IT@CUHK","MSc EE@HKUST","MSc IT@HKUST","MSc Telecommunications@HKUST",
+        "MSc Computer Science@CityUHK","MSc Data Science@CityUHK",
+        "MSc EE@PolyU","MSc Electronic Information Engineering@CityUHK","MSc Multimedia IT@CityUHK",
+        "Electronic and Information Engineering - MSc@PolyU","IT - MSc@PolyU","Metaverse Technology - MSc@PolyU",
+        "Mcomp@NUS","MSAI@NTU","MSDS@NTU","CyberSecurity@Ntu",
+        "CE@NUS","MITB@SMU","DSML@NUS",
+        "MLMI@Cambridge","ACS@Cambridge","ACS@Oxford","CSML MSc@UCL",
+        "DSML MSc@UCL","ML MSc@UCL","AI@Edinburgh","AIML@IC","AC@IC",
+        "Edinburgh CS","CS MSc@UCL","CGVI@UCL",
+        "MCS@ANU","MCS@UofMELB","MCS@USYD","IT@UofMELB","BIS@ANU","SE@UofMELB",
+        "DS@UofMELB","IT@USYD","IT@UNSW","ITM@USYD","IS@UofMELB","SE@USYD",
+        "MCS@UQ","DS@USYD","DS@UNSW","IT@UQ",
+        "DS@UQ","IT@Monash","IT@UWA","AI@Monash","DS@UWA","Cybersecurity@Monash","DS@Monash"
+    ]
+
+    
+}

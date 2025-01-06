@@ -1,0 +1,52 @@
+.body{
+    padding-top: 50px;
+}
+
+.markdown-body {
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; /* 可选：设置背景色更贴近 GitHub 风格 */
+    border: 3px solid rgb(34, 176, 171); /* 可选：添加边框 */
+    border-radius: 6px; /* 可选：圆角效果 */
+}
+
+#markdown-content {
+    margin-top: 90px; /* 导航栏的高度加一些间距 */
+    padding: 20px; /* 给内容增加内边距 */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffffec;
+    color: #303136;
+    padding: 10px 20px;
+    position: fixed;
+    left:0;
+    top: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.navbar button:hover {
+    text-decoration: underline;
+}
+
+.navbar h1{
+    font-size: large;
+}

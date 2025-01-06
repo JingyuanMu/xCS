@@ -1,0 +1,40 @@
+{
+    "Canada": {
+        "S (equal to US S-SSS)": ["MSc CS@UBC vancouver","MSc CS@UofT","MSc CS@Mcgill","MMATH@Waterloo"],
+        "A+ (equal to US A-S)": ["MS ECE@UBC vancouver","MSc CS@SFU","MSc CS@Uvic","MSc CS@UBC Okanagan","MScAC@UofT","MENG ECE Co-op@Waterloo","MDSAI@Waterloo"],
+        "A (equal to US A)":["MASc ECE@Uvic","MSCS@uCalgary","MSCS@uAlberta","MDS@UBC vancouver","MI@UofT"],
+        "A- (equal to US A-)": ["MENG ECE@Uvic","MPCS Big Data@SFU","MPCS Computer Vision@SFU","MPCS Security@SFU","MDS@UBC Okanagan","CS Meng ECE@Mcgill","CAS MEng@McMaster","MSc@York","AI-MSc@York","MSc CS@Queen","MSc CS@University of Saskatchewan"],
+        "B+":["MS EE@UBC Okanagan","MS ECE@UofT","MS CS@NEU VAN","MENG ECE Non Co-op@UofT","MCS@UOttawa/UCarleton","MDS@Uwestern","ECE MEng@McMaster","MSCS@Western","MCS MultiMedia@uAlberta","MDS@uCalgary","MSc ECE@University of Saskatchewan"],
+        "B":["MADS@Uvic","MTIS@Uvic","MACS@Dalhousie","MECE@UOttawa","MECE@Uwestern","ECE MEng@uAlberta","Meng EE@University of Saskatchewan","ECE@Concordia University","CS@Concordia University"],
+        "B-":["CS@UniversityofManitoba","CS@UniversityofWindsor","CS@MemorialUniversity","DS@MemorialUniversity"],
+        "C+":["MSDS@Thompson Rivers University","CyberSecurity@NYIT VAN","MSCS@FDU VAN","MSCS@UNBC"]
+    },
+
+    "Hong Kong":{
+        "A":["MPhil CS@HKU","MPhil EEE@HKU","MPhil CSE@CUHK"],
+        "A-": ["MPhil EE@CUHK","MPhil CSE@HKUST","MPhil ECE@HKUST"],
+        "B": ["MDASC@HKU","MSc(AI)@HKU","MSc Cs@HKU","MSe ECE General Stream@HKU","MSe ECE Robotics and Intelligent Systems@HKU","MSc IC@HKUST"],
+        "B-": ["MSe ECE Communications Engineering Stream@HKU","MSe ECE  Power Engineering Stream@HKU","MSc CS@CUHK","MSc EE@CUHK","MSc IT@CUHK","MSc EE@HKUST","MSc IT@HKUST","MSc Telecommunications@HKUST"],
+        "C+": ["MSc Computer Science@CityUHK","MSc Data Science@CityUHK"],
+        "C": ["MSc EE@PolyU","MSc Electronic Information Engineering@CityUHK","MSc Multimedia IT@CityUHK"],
+        "C-": ["Electronic and Information Engineering - MSc@PolyU","IT - MSc@PolyU","Metaverse Technology - MSc@PolyU"]
+    },
+
+    "Singapore":{
+        "S":["Mcomp@NUS","MSAI@NTU","MSDS@NTU","CyberSecurity@Ntu"],
+        "A":["CE@NUS","MITB@SMU","DSML@NUS"]
+    },
+
+    "UK":{
+        "S":["MLMI@Cambridge","ACS@Cambridge","ACS@Oxford","CSML MSc@UCL"],
+        "A":["DSML MSc@UCL","ML MSc@UCL","AI@Edinburgh","AIML@IC","AC@IC"],
+        "B":["Edinburgh CS","CS MSc@UCL","CGVI@UCL"]
+    },
+
+    "Australia":{
+        "S":["MCS@ANU","MCS@UofMELB","MCS@USYD","IT@UofMELB","BIS@ANU","SE@UofMELB"],
+        "A":["DS@UofMELB","IT@USYD","IT@UNSW","ITM@USYD","IS@UofMELB","SE@USYD"],
+        "B": ["MCS@UQ","DS@USYD","DS@UNSW","IT@UQ"],
+        "C": ["DS@UQ","IT@Monash","IT@UWA","AI@Monash","DS@UWA","Cybersecurity@Monash","DS@Monash"]
+    }
+}

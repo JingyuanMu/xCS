@@ -40,11 +40,14 @@ def create_app(test_config=None):
         us_data = data.get('us', {})  # 获取 'us' 键的内容
         return render_template('usrank.html', data=us_data)
 
-    @app.route('/carank')
+    @app.route('/globalrank')
     def carank():
-        data = load_json_data('data.json')  # 读取 JSON 数据
-        ca_data = data.get('ca', {})  # 获取 'ca' 键的内容
-        return render_template('carank.html', data=ca_data)
+        data = load_json_data('global.json')  # 读取 JSON 数据
+        return render_template('globalrank.html', data=data)
+
+    @app.route('/visa')
+    def visa():
+        return render_template('visa.html')
 
     @app.route('/cvsop')
     def cvsop():
