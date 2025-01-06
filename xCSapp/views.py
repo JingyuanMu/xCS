@@ -231,16 +231,15 @@ def introshow():
 def introedit():
     db = get_db()
     if request.method == 'POST':
-        name = request.form['name']
-        description_manager =request.form['description_manager']
+        id = request.form.get('id') 
+        if id:
+            description_manager =request.form['description_manager']
 
-        db.execute(
-                'INSERT INTO admissions (name,description_manager) '
-                'VALUES (?, ?)',
-                (name, description_manager)
-        )
-        db.commit()
-            
+            db.execute(
+                'UPDATE school_intro SET description_manager=? WHERE id = ?',
+                (description_manager, id)
+            )
+            db.commit()
 
-    school_intros = db.execute('SELECT * FROM school_intro ORDER BY name ASC').fetchall()
-    return render_template('introshow.html', school_intros=school_intros)
+    school_intros = db.execute('SELECT * FROM school_intro ORDER BY id DESC').fetchall()
+    return render_template('introedit.html', school_intros=school_intros)

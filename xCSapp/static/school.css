@@ -42,6 +42,33 @@ body {
     font-size: large;
 }
 
+.school {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 90; /* 确保宽度是百分比或具体值 */
+    border-radius: 8px;
+    display: flex; /* 保持 flex 布局 */
+    flex-wrap: wrap; /* 启用换行 */
+    justify-content: left;
+    align-items: center;
+    overflow-x: hidden; /* 禁止水平滚动条，换行时内容不会溢出 */
+    overflow-y: auto; /* 启用垂直滚动条（可选） */
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid rgb(34, 176, 171);
+    word-wrap: break-word; /* 强制单词换行 */
+    word-break: break-word; /* 强制单词换行（对于长单词） */
+    box-sizing: border-box; 
+}
+
+.school pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
 .container {
     text-align: left;
     padding: 20px;
@@ -85,10 +112,10 @@ table th, table td {
 button {
     background-color: #28a745;
     color: #fff;
-    font-size: smaller;
+    font-size: xx-small;
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

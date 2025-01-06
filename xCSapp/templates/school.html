@@ -14,7 +14,7 @@
 
     <div class="container">
         <h2>院校简介：</h2>
-        <div id="school-info">
+        <div id="school-info" class="school">
             {% if school_info.description_manager %}
                 <pre>{{ school_info.description_manager }}</pre>
             {% else %}
@@ -22,8 +22,7 @@
             {% endif %}
         </div>
 
-        <!-- 添加按钮 -->
-        <button id="addButton">项目说明补充</button>
+        <button id="addButton">欢迎补充</button>
 
         <!-- 添加表单 -->
         <div id="admissions-form" >
