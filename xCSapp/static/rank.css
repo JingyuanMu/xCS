@@ -100,7 +100,6 @@ ul li a:hover {
     z-index: 1000; /* 确保索引栏在其他内容之上 */
     max-height: 90vh; /* 确保在视窗内可滚动 */
     overflow-y: auto; /* 如果内容超出，显示滚动条 */
-    font-size: 0.3rem; 
 }
 .right-index ul {
     padding: 0; /* 去除默认的上/下内边距 */

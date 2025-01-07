@@ -149,7 +149,6 @@ form button:hover {
 
     line-height: 1; /* 设置段落的行间距 */
     margin: 0;
-    font-size: xx-small;
 }
 
 .admission-card::before {

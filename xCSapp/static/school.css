@@ -106,13 +106,11 @@ table th, table td {
     vertical-align: middle; 
     padding: 8px; /* 单元格内边距 */
     border: none; 
-    font-size: 8px;
 }
 
 button {
     background-color: #28a745;
     color: #fff;
-    font-size: xx-small;
     padding: 10px;
     border: none;
     border-radius: 2px;
