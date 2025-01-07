@@ -1,1 +1,1 @@
-web: gunicorn xCSapp:app
+web: gunicorn 'xCSapp:create_app()'
